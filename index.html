@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>ML</title>
+    <link rel="stylesheet" href="http://anijs.github.io/lib/anicollection/anicollection.css">
+    <link rel="shortcut icon" type="text/css" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./css/base.css">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fugaz+One|Shrikhand" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js" integrity="sha256-H28SdxWrZ387Ldn0qogCzFiUDDxfPiNIyJX7BECQkDE=" crossorigin="anonymous" defer="defer"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.14.7/umd/popper.min.js" defer="defer"></script>
+    <script src="https://cdn.staticfile.org/AniJS/0.9.3/anijs-min.js" defer="defer"></script>
+    <script>
+        var psw=prompt("请输入密码:");
+        var npsw=psw.toLowerCase();
+        if(npsw!="liudian"&psw!="刘典"){
+            $("*").css("visibility","hidden");
+            }
+    </script>
+    <style type="text/css">
+    html,
+    body {
+        height: 100%;
+        color: black;
+        font-size: 12px;
+    }
+
+    .header {
+        background-image: url("./img/header.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 14rem;
+        padding-top: 4rem;
+        margin-top: 4.5rem;
+    }
+
+    .story {
+        text-align: center;
+        font-family: Shrikhand;
+        font-size: 3.5rem;
+        line-height: 1.2;
+        position: absolute;
+        z-index: 1;
+        padding-top: 7.5rem;
+        padding-left: 3.2rem;
+    }
+
+    .us {
+        color: #ffffff;
+    }
+
+    .main {
+        padding-bottom: 5px;
+        transition: background 2s;
+        padding-top:10px;
+        background:#dfe6e9;
+    }
+
+    .title {
+        font-family: Fugaz One;
+        padding-top: 3.8rem;
+        font-weight: bold;
+        text-align: center;
+        font-size: 2.5rem;
+    }
+
+    .carousel-inner img {
+        width: 100%;
+        height: 100%;
+    }
+
+    hr {
+        max-width: 100%;
+        margin-top: 0;
+    }
+
+    .main-part {
+        height: 28rem;
+        width: 90%;
+        margin: 15px auto 25px auto;
+        background-size: contain;
+        background-repeat: no-repeat;
+        box-shadow: #5D4037 0px 1px 7px;
+        position: relative;
+        z-index: 1;
+        text-align: justify;
+        transition: background 1s;
+    }
+
+    .travel {
+        background-color: #81D4FA;
+    }
+
+    .animal {
+        background-color: #ffba13;
+    }
+
+    .footer {
+        background-color: black;
+        height: 5rem;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .footer a {
+        color: white;
+        font-size: 2rem;
+        line-height: 3rem;
+        font-family: Fugaz One;
+        text-decoration: none;
+    }
+
+    nav {
+        box-shadow: 0 1px 10px #E0E0E0;
+        position: -webkit-sticky;
+    }
+
+    #ml {
+        line-height: 100%;
+    }
+
+    .test {
+        opacity: 0;
+    }
+
+    .cue {
+        font-family: Fugaz One;
+        font-size: 8rem;
+        text-align: center;
+        float: left;
+        margin-top: 7rem;
+        margin-left: 12rem;
+    }
+    .divp{
+        padding: 20rem 1rem 0 1rem;
+        font-family: Shrikhand;
+        font-size: 1.4rem;
+        word-break: break-all;
+        color: #333;
+        text-shadow: 1px 0.6px #333;
+        color: #F5F5F5;
+    }
+    .p2{
+        font-family: Shrikhand;
+        font-size: 1.1rem;
+        color: #333;
+    }
+    .span1{
+        padding-right: 5px;
+        margin: 0;
+    }
+    #p1{
+        height:3px;
+        width:100%;
+        position:sticky;
+        position: -webkit-sticky;
+        top:3.7rem;
+        z-index:2;
+        margin:0;
+        padding:0;
+        border:black;
+    }
+    progress::-webkit-progress-bar {background: white;}
+    progress::-webkit-progress-value {background:black;}
+    #dtext{
+        height:50px;
+        overflow:hidden;
+        position:sticky;
+        position: -webkit-sticky;
+        top:3.4rem;
+        width:0;
+        z-index:2;
+    }
+    #dtext p{
+        font-size:28px;
+        line-height:55px;
+        margin:auto;
+        text-indent:1.4em;
+        letter-spacing:1em;
+        font-family: Fugaz One;
+    }
+    #by{
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            position: fixed;
+            z-index: 2;
+        }
+        .circle{
+            opacity: 0;
+            background-color: red;
+            width: 49.5px;
+            height: 49.5px;
+            border-radius: 49.5px;
+    </style>
+</head>
+
+<body>
+    <div id="by">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+</div>
+    <header>
+    <nav class="navbar bg-dark navbar-dark navbar-expand-md fixed-top" id="mynav">
+        <a class="navbar-brand" href="#">
+            <p class="fb f2r" id="ml" data-anijs="if:click,do:rubberBand animated">ML</p>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon" data-anijs="if:click,do:swing animated"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="#travel" class="nav-link f1d5r">Travel</a></li>
+                <li class="nav-item"><a href="#Animal" class="nav-link f1d5r">Animal</a></li>
+                <li class="nav-item"><a href="#Food" class="nav-link f1d5r">Food</a></li>
+                <li class="nav-item"><a href="#More" class="nav-link f1d5r">More</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="carousel slide" data-ride="carousel">
+        <p class="story">This is a story <br />
+            about <span class="us">us</span></p>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/header.jpg">
+            </div>
+            <div class="carousel-item">
+                <img src="img/header1.jpg">
+            </div>
+        </div>
+    </div>      
+    </header>
+      
+    <section>
+    <div class="main" id="main">
+        <div id="dtext">
+            <p>Ddfm&nbsp;Ttt</p>
+        </div>
+        <h1 class="title" id="travel">Travel</h1>
+        <progress id="p1" max=100 value=0></progress>
+        <p class="cue">T</p>
+        <div class="travel main-part" style="background-image:url('img/travel1.jpg')" data-num='1'>
+            <p class="divp">To live is to suffer, to survive is to find some meaning in the suffering.</p>
+            <p class="p2 fr pr1r">——Friedrich Nietzsche</p>
+        </div>
+        <p class="cue">我</p>
+        <div class="travel main-part" style="background-image:url('img/travel2.jpg')" data-num='2'>
+            <p class="divp">When you look into an abyss, the abyss also looks into you.</p>
+            <p class="p2 fr pr1r">——Friedrich Nietzsche</p>
+        </div>
+        <div class="travel main-part" style="background-image:url('img/travel3.jpg')" data-num='3'>
+            <p class="divp">We may encounter many defeats but we must not be defeated.</p>
+            <p class="p2 fr pr1r">——Maya Angelou</p>
+        </div>
+        <div class="travel main-part" style="background-image:url('img/travel4.jpg')" data-num='4'>
+            <p class="divp">There's a world of difference between truth and facts. Facts can obscure the truth.</p>
+            <p class="p2 fr pr1r">——Maya Angelou</p>
+        </div>
+        <div class="travel main-part" style="background-image:url('img/travel5.jpg')" data-num='5'>
+            <p class="divp">I work very hard, and I play very hard. I'm grateful for life.I believe life loves the liver of it. I live it.</p>
+            <p class="p2 fr pr1r">——Maya Angelou</p>
+        </div>
+        <div class="travel main-part" style="background-image:url('img/travel6.jpg')" data-num='6'>
+            <p class="divp">I had given up some youth for knowledge, but my gain was more valuable than the loss.</p>
+            <p class="p2 fr pr1r">——Maya Angelou</p>
+        </div>
+        <h1 class="title" id="Animal">Animal</h1>
+        <hr>
+        <div class="animal main-part" style="background-image:url('img/animal1.jpg')" data-num='7'>
+        <p class="divp">Life is 10% what happens to you and 90% how you react to it.</p>
+    <p class="p2 fr pr1r">——Charles R. Swindoll</p></div>
+        <div class="animal main-part" style="background-image:url('img/animal2.jpg')" data-num='8'>
+        <p class="divp">We need discernment in what we see and what we hear and what we believe.</p>
+    <p class="p2 fr pr1r">——Charles R. Swindoll</p></div>
+        <div class="animal main-part" style="background-image:url('img/animal3.jpg')" data-num='9'>
+        <p class="divp">I let people see the cracks in my life. We can't be phony. We've got to keep it real.</p>
+    <p class="p2 fr pr1r">——Charles R. Swindoll</p></div>
+        <div class="animal main-part" style="background-image:url('img/animal4.jpg')" data-num='10'>
+        <p class="divp">We were told our campaign wasn't sufficiently slick. We regard that as a compliment.</p>
+    <p class="p2 fr pr1r">——Margaret Thatcher</p></div>
+        <div class="animal main-part" style="background-image:url('img/animal11.jpg')" data-num='11'>
+        <p class="divp">I usually make up my mind about a man in ten seconds, and I very rarely change it.</p>
+    <p class="p2 fr pr1r">——Margaret Thatcher</p></div>
+        <div class="animal main-part" style="background-image:url('img/animal10.jpg')" data-num='12'>
+            <p class="divp">I am not afraid of an army of lions led by a sheep; I am afraid of an army of sheep led by a lion.</p>
+            <p class="p2 fr pr1r">——Alexander the Great</p></div>
+    </div>
+    </section>
+    <footer>
+    <div class="footer">
+        <p class="tc"><a href="#"><span class="fas fa-clinic-medical span1" style="color:white"></span>ABOUT US</a></p>
+        <p class="tc cw" id="time"></p>
+    </div>
+    </footer>
+    <script type="text/javascript">
+    $(function(){
+        $("#time").text(Date());
+        $(".main-part").dblclick(function() {
+            $(this).toggleClass('test');
+        });
+        
+        $(".main-part").click(function(){
+            var al=$(this).attr('data-num');
+            var path='img/replace'+al+".jpg";
+            var ypath="img/travel"+al+".jpg";
+            var fpath=$(this).css("background-image");
+            var ffpath=fpath.split("(")[1].split(")")[0];
+            if(ffpath.match('travel')){
+                $(this).css("background-image","url("+path+")");
+            }else{
+                $(this).css("background-image","url("+ypath+")");
+            }
+        });
+        var dt=document.getElementById("dtext");
+    window.onscroll=function(){
+        var dh=document.body.scrollTop;
+        var dh=$(document).scrollTop();
+        var pro=document.getElementById("p1");
+        pro.value=dh/41;
+        dt.style.width=pro.value+"%";
+        var dd=document.getElementById('main');
+        if(pro.value>0&pro.value<25){
+            dd.style.background='#dfe6e9';
+        }else if(pro.value>=25&pro.value<50){
+            dd.style.background="#99ccff";
+        }else if(pro.value>=50&pro.value<75){
+            dd.style.background="#ffcc99";
+        }else if(pro.value>=75){
+            dd.style.background="#ffcccc";
+        }
+    }
+    })
+    </script>
+    <script>
+        $(function(){
+            var colors=['red','yellow','green','pink','black','blue','gray','orange','skyblue','orange'];
+            
+            $('.circle').mouseover(function(){
+                var i=Math.floor(Math.random()*10);
+                var color=colors[i];
+
+                $(this).css("background-color",color);
+                $(this).animate({opacity:"1"});
+                
+            }).mouseout(function(){
+                $(this).animate({opacity:".9"},100);
+                $(this).animate({opacity:'.8'},100);
+                $(this).animate({opacity:'.7'},100);
+                $(this).animate({opacity:".6"},100);
+                $(this).animate({opacity:'.5'},100);
+                $(this).animate({opacity:'.4'},100);
+                $(this).animate({opacity:".3"},100);
+                $(this).animate({opacity:'.2'},100);
+                $(this).animate({opacity:'.1'},100);
+                $(this).animate({opacity:'0'},100);
+            })
+        })
+    </script>
+</body>
+
+</html>
